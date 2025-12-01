@@ -30,6 +30,11 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --access public
 
+      - name: Create Git tag
+        run: |
+          git tag v$(node -p "require('./package.json').version")
+          git push origin v$(node -p "require('./package.json').version")
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
