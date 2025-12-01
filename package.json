@@ -1,5 +1,5 @@
 {
-  "name": "@gavin/create-k3s-scaffold",
+  "name": "@gavinxu147937/create-k3s-scaffold",
   "version": "1.0.0",
   "description": "CLI to scaffold k3s projects and auto-create example services",
   "bin": {
