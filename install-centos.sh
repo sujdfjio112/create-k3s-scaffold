@@ -16,7 +16,7 @@ else
   yum install -y nodejs
 fi
 
-# k3s
+# k3s1
 if command -v k3s >/dev/null 2>&1; then
   echo "[Step 3] k3s already installed, skipping..."
 else
