@@ -28,12 +28,12 @@ jobs:
       - name: Generate SHA
         run: sha256sum create-k3s-scaffold-$(node -p "require('./package.json').version").tgz > create-k3s-scaffold.tgz.sha256
 
-      - name: GPG Sign
-        env:
-          GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-        run: |
-          echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-          gpg --armor --detach-sign create-k3s-scaffold-$(node -p "require('./package.json').version").tgz
+      # - name: GPG Sign
+      #   env:
+      #     GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
+      #   run: |
+      #     echo "$GPG_PRIVATE_KEY" | gpg --batch --import
+      #     gpg --armor --detach-sign create-k3s-scaffold-$(node -p "require('./package.json').version").tgz
 
       - name: Publish to npm
         env:
