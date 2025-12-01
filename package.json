@@ -1,6 +1,6 @@
 {
   "name": "@gavinxu147937/create-k3s-scaffold",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI to scaffold k3s projects and auto-create example services",
   "bin": {
     "create-k3s-scaffold": "bin/cli.js"
