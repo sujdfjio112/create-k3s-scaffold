@@ -26,7 +26,10 @@ jobs:
         run: npm pack
 
       - name: Generate SHA
-        run: sha256sum create-k3s-scaffold-$(node -p "require('./package.json').version").tgz > create-k3s-scaffold.tgz.sha256
+        run: |
+          FILE_NAME="create-k3s-scaffold-$(node -p "require('./package.json').version").tgz"
+          echo "Generated file name: $FILE_NAME"
+          sha256sum $FILE_NAME > create-k3s-scaffold.tgz.sha256
 
       # - name: GPG Sign
       #   env:
