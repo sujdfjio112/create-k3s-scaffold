@@ -1,0 +1,18 @@
+{
+  "name": "@yourname/create-k3s-scaffold",
+  "version": "1.0.0",
+  "description": "CLI to scaffold k3s projects and auto-create example services",
+  "bin": {
+    "create-k3s-scaffold": "bin/cli.js"
+  },
+  "main": "bin/cli.js",
+  "scripts": {
+    "test": "echo \"No tests yet\"",
+    "pack:tgz": "npm pack",
+    "generate:sha": "sha256sum create-k3s-scaffold-$(node -p \"require('./package.json').version\").tgz > create-k3s-scaffold.tgz.sha256"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "readline-sync": "^1.4.10"
+  }
+}
