@@ -25,19 +25,6 @@ jobs:
       - name: Pack npm package
         run: npm pack
 
-      - name: Generate SHA
-        run: |
-          FILE_NAME="create-k3s-scaffold-$(node -p "require('./package.json').version").tgz"
-          echo "Generated file name: $FILE_NAME"
-          sha256sum $FILE_NAME > create-k3s-scaffold.tgz.sha256
-
-      # - name: GPG Sign
-      #   env:
-      #     GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
-      #   run: |
-      #     echo "$GPG_PRIVATE_KEY" | gpg --batch --import
-      #     gpg --armor --detach-sign create-k3s-scaffold-$(node -p "require('./package.json').version").tgz
-
       - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -48,7 +35,5 @@ jobs:
         with:
           files: |
             create-k3s-scaffold-$(node -p "require('./package.json').version").tgz
-            create-k3s-scaffold.tgz.sha256
-            create-k3s-scaffold-$(node -p "require('./package.json').version").tgz.asc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
